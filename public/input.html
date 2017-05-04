@@ -31,8 +31,7 @@ Todo:   create an input environment, where the user can
     <script defer src="/__/firebase/3.8.0/firebase-storage.js"></script>
     <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
-    <!-- Styles -->
-    <link href="css/index.css" type="text/css" rel="stylesheet">
+    <!-- Scripts -->
 
 
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
@@ -47,13 +46,6 @@ Todo:   create an input environment, where the user can
             messagingSenderId: "341104951013"
         };
         firebase.initializeApp(config);
-        firebase.auth().onAuthStateChanged(firebaseUser => {
-            if (firebaseUser) {
-                console.log(firebaseUser);
-            } else {
-                console.log('not logged in');
-            }
-        });
 
     </script>
 </head>
@@ -65,8 +57,11 @@ Todo:   create an input environment, where the user can
 </nav>
 
 <body>
-    <input id="tag" type="text" placeholder="Card Tag"><br>
-    <button id="addTag" class="inputButton">Add</button>
+    <input id="tag" type="text" placeholder="Card Tag">
+    <input id="question" type="text" placeholder="Questions">
+    <input id="answer" type="text" placeholder="Answer"><br>
+    <button id="AddOne" class="inputButton">Add</button>
+    <script type="text/javascript" src="input.js"></script>
 </body>
 
 </html>

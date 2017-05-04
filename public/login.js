@@ -21,16 +21,11 @@ loginBtn.addEventListener('click', e => {
     String.prototype.replaceAll = function(target, replacement) {
       return this.split(target).join(replacement);
     };
-    
-    for(var i=0; i<emailDB.length;i++){
-        for(var i = 0; i < badChars.length; i++){
-        emailDB = emailDB.replaceAll(badChars[i], '_');
-        alert(emailDB);
-        }
-    }
   
+    for (var i = 0; i < badChars.length; i++) {
+        emailDB = emailDB.replaceAll(badChars[i], '_');
+    }
 
-    
     //sign in
     const promise = auth.signInWithEmailAndPassword(email, pass);
     promise.catch(e => console.log(e.message));
