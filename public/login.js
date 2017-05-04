@@ -15,14 +15,21 @@ loginBtn.addEventListener('click', e => {
     const auth = firebase.auth();
     
     var emailDB = email;
-    
+
     var badChars = ['@', '.', '$', ']', '[', '#'];
     
-    for(var i = 0; i < badChars.length; i++){
-        emailDB = emailDB.replace(badChars[i], '_');
+    String.prototype.replaceAll = function(target, replacement) {
+      return this.split(target).join(replacement);
+    };
+    
+    for(var i=0; i<emailDB.length;i++){
+        for(var i = 0; i < badChars.length; i++){
+        emailDB = emailDB.replaceAll(badChars[i], '_');
+        alert(emailDB);
+        }
     }
   
-    alert(emailDB);
+
     
     //sign in
     const promise = auth.signInWithEmailAndPassword(email, pass);

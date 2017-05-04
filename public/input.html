@@ -1,8 +1,72 @@
+<!-- 
+Todo:   create an input environment, where the user can
+        add questions ans answers that apply to a certain
+        script tag. This script tag accesses the database
+        and stores it correctly under
+        
+        flashMe{
+            user{
+                -identifer info
+                tags{
+                    questions:answers
+                }
+            }
+        }
+-->
+
 <html>
-    <head>
-        
-    </head>
-    <body>
-        
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>flashMe</title>
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="css/input.css">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/3.8.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/3.8.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/3.8.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/3.8.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/3.8.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+    <!-- Styles -->
+    <link href="css/index.css" type="text/css" rel="stylesheet">
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCioYTRwb8pYutkR09XTm3MSq2me18Q0uw",
+            authDomain: "flashme-a53f6.firebaseapp.com",
+            databaseURL: "https://flashme-a53f6.firebaseio.com",
+            projectId: "flashme-a53f6",
+            storageBucket: "flashme-a53f6.appspot.com",
+            messagingSenderId: "341104951013"
+        };
+        firebase.initializeApp(config);
+        firebase.auth().onAuthStateChanged(firebaseUser => {
+            if (firebaseUser) {
+                console.log(firebaseUser);
+            } else {
+                console.log('not logged in');
+            }
+        });
+
+    </script>
+</head>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="input.html">Input Cards!</a>
+    <!-- CARDS ! <a href="cards.html"></a> -->
+</nav>
+
+<body>
+    <input id="tag" type="text" placeholder="Card Tag"><br>
+    <button id="addTag" class="inputButton">Add</button>
+</body>
+
 </html>
